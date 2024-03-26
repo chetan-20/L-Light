@@ -12,6 +12,7 @@ public class PlayerControler : MonoBehaviour
     private bool issliding = false;
     [SerializeField] private float movingspeed=2;    
     [SerializeField] private float jumpspeed = 1;
+    [SerializeField] private BoxCollider2D attackhitbox;
     [SerializeField] private Animator animator;
 
     private void Awake()
@@ -23,6 +24,7 @@ public class PlayerControler : MonoBehaviour
     {
         defaultspeed = movingspeed;
         slidingspeed = movingspeed * 2;
+        attackhitbox.enabled = false;
     }
     private void Update()
     {
@@ -71,14 +73,17 @@ public class PlayerControler : MonoBehaviour
     }   
     private void Attack()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !issliding && !isjumping)
         {
-            animator.SetBool("IsAttacking", true);
+            animator.SetBool("IsAttacking", true);            
+            attackhitbox.enabled = true;
+            attackhitbox.transform.localPosition = new Vector2(rbSprite.flipX ? -1f : 1f, attackhitbox.transform.localPosition.y);           
         }
     }
     private void TurnOffAttack()
     {
         animator.SetBool("IsAttacking", false);
+        attackhitbox.enabled = false;
     } 
     private void TurnOffJump()
     {
