@@ -53,33 +53,22 @@ public class PlayerControler : MonoBehaviour
     }
     private void JumpPlayer()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && !issliding)
+        if(Input.GetKeyDown(KeyCode.Space) && !issliding && !isjumping)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpspeed);
             animator.SetBool("IsJumping", true);
             isjumping = true;
         }
-    }
-    private void TurnOffJump()
-    {
-        animator.SetBool("IsJumping", false);
-        isjumping = false;
-    }
+    }   
     private void SlidePlayer()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !isjumping)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !isjumping && !issliding)
         {
             issliding = true;
             animator.SetBool("IsSliding", true);
             movingspeed = slidingspeed;
         }
-    }
-    private void TurnOffSlide()
-    {
-        issliding = false;
-        movingspeed = defaultspeed;
-        animator.SetBool("IsSliding", false);
-    }
+    }   
     private void Attack()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -90,5 +79,16 @@ public class PlayerControler : MonoBehaviour
     private void TurnOffAttack()
     {
         animator.SetBool("IsAttacking", false);
+    } 
+    private void TurnOffJump()
+    {
+        animator.SetBool("IsJumping", false);
+        isjumping = false;
+    } 
+    private void TurnOffSlide()
+    {
+        issliding = false;
+        movingspeed = defaultspeed;
+        animator.SetBool("IsSliding", false);
     }
 }
