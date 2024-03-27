@@ -3,17 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Pendulum : MonoBehaviour
-{
-    [SerializeField]private float amplitude = 45f;
-    [SerializeField]private float speed = 1f;
-    [SerializeField]private Vector2 pivotPoint;
-
+{   
+    [SerializeField] private float speed = 1f;
+    [SerializeField] private float minRotation = 140f;
+    [SerializeField] private float maxRotation = 220f;
     private void Update()
-    {
-        // Calculate the angle based on time and speed
-        float angle = Mathf.Sin(Time.time * speed) * amplitude;
-        Vector2 newPosition = pivotPoint + new Vector2(Mathf.Sin(angle * Mathf.Deg2Rad), -Mathf.Cos(angle * Mathf.Deg2Rad));
-        transform.position = newPosition;
+    {      
+        float angle = Mathf.Sin(Time.time * speed);       
+        float rotation = Mathf.Lerp(minRotation, maxRotation, (angle+1f)/2f);        
+        transform.rotation = Quaternion.Euler(0f, 0f, rotation);
     }
-
 }
