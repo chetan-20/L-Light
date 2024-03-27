@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class PlayerControler : MonoBehaviour
 {
+    public static PlayerControler instance;
     private Rigidbody2D rb;
     private SpriteRenderer rbSprite;
     private float defaultspeed;
     private float slidingspeed;
     private bool isjumping=false;
     private bool issliding = false;
+    internal float playerhealth = 100f;
     [SerializeField] private float movingspeed=2;    
     [SerializeField] private float jumpspeed = 1;
     [SerializeField] private BoxCollider2D attackhitbox;
@@ -17,6 +19,7 @@ public class PlayerControler : MonoBehaviour
 
     private void Awake()
     {
+        instance = this;
         rb = GetComponent<Rigidbody2D>();
         rbSprite = rb.GetComponent<SpriteRenderer>();
     }
@@ -25,6 +28,7 @@ public class PlayerControler : MonoBehaviour
         defaultspeed = movingspeed;
         slidingspeed = movingspeed * 2;
         attackhitbox.enabled = false;
+        Debug.Log("Player hp : " + playerhealth);
     }
     private void Update()
     {
