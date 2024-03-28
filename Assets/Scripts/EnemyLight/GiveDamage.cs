@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GiveDamage : MonoBehaviour
 {
-    private float damagerate = 3f;
+    [SerializeField] private float damagerate = 3f;
     private bool isinrange = false;
     
     private void OnTriggerEnter2D(Collider2D collision)

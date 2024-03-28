@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class MoveObject : MonoBehaviour
 {
-    [SerializeField] private Transform BaseObject;
-    [SerializeField] private Transform PointA;
-    [SerializeField] private Transform PointB;    
-    [SerializeField] private float MovingSpeed;
+    [SerializeField] protected Transform BaseObject;
+    [SerializeField] protected Transform PointA;
+    [SerializeField] protected Transform PointB;    
+    [SerializeField] protected float MovingSpeed;
+    [SerializeField] protected SpriteRenderer sprite;
     private int direction = 1;
     
     void Update()
@@ -25,11 +26,13 @@ public class MoveObject : MonoBehaviour
     {
         if (direction == 1)
         {
-            return PointA.position;
+            sprite.flipX = false;
+            return PointA.position;           
         }
         else
         {
-            return PointB.position;
+            sprite.flipX = true;
+            return PointB.position;            
         }
     }
 }

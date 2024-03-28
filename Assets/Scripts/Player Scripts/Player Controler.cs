@@ -11,10 +11,10 @@ public class PlayerControler : MonoBehaviour
     private float slidingspeed;
     private bool isjumping=false;
     private bool issliding = false;
-    internal float playerhealth = 100f;
+    internal float playerhealth = 100f;   
     [SerializeField] private float movingspeed=2;    
     [SerializeField] private float jumpspeed = 1;
-    [SerializeField] private BoxCollider2D attackhitbox;
+    [SerializeField] internal BoxCollider2D attackhitbox;
     [SerializeField] private Animator animator;
 
     private void Awake()
@@ -79,7 +79,7 @@ public class PlayerControler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) && !issliding && !isjumping)
         {
-            animator.SetBool("IsAttacking", true);            
+            animator.SetBool("IsAttacking", true);          
             attackhitbox.enabled = true;
             attackhitbox.transform.localPosition = new Vector2(rbSprite.flipX ? -1f : 1f, attackhitbox.transform.localPosition.y);           
         }
