@@ -179,9 +179,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4487652784001022775}
   - component: {fileID: 6008542207503122042}
-  - component: {fileID: 2065605464381269080}
   - component: {fileID: 586483959378193053}
   - component: {fileID: 673385776117977692}
+  - component: {fileID: 4699061347843690864}
   m_Layer: 0
   m_Name: AvoidLightCone
   m_TagString: Untagged
@@ -254,19 +254,6 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!114 &2065605464381269080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3055983442345160413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11c737c098268934882e8a058ef9778b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damagerate: 3
 --- !u!60 &586483959378193053
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -332,6 +319,21 @@ MonoBehaviour:
   speed: 1
   minRotation: 140
   maxRotation: 220
+--- !u!114 &4699061347843690864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3055983442345160413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11c737c098268934882e8a058ef9778b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagerate: 3
+  objectlife: 3
+  light2d: {fileID: 6008542207503122042}
 --- !u!1 &4217392833226343136
 GameObject:
   m_ObjectHideFlags: 0

@@ -81,9 +81,10 @@ public class PlayerControler : MonoBehaviour
         {
             animator.SetBool("IsAttacking", true);          
             attackhitbox.enabled = true;
-            attackhitbox.transform.localPosition = new Vector2(rbSprite.flipX ? -1f : 1f, attackhitbox.transform.localPosition.y);           
+            attackhitbox.transform.localPosition = new Vector2(rbSprite.flipX ? -2.5f : 0f, attackhitbox.transform.localPosition.y);           
         }
     }
+   
     private void TurnOffAttack()
     {
         animator.SetBool("IsAttacking", false);

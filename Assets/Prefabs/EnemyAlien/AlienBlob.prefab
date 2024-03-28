@@ -41,8 +41,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2943821549162893802}
   - component: {fileID: 7538566631005212495}
-  - component: {fileID: 1187585388733629626}
-  - component: {fileID: 7574766163688391786}
+  - component: {fileID: 7472141644210136681}
+  - component: {fileID: 9218596134835677530}
   m_Layer: 0
   m_Name: BlobLight
   m_TagString: Untagged
@@ -80,12 +80,12 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
-  m_Color: {r: 1, g: 0.9527312, b: 0, a: 1}
-  m_Intensity: 5
+  m_FalloffIntensity: 1
+  m_Color: {r: 1, g: 0, b: 0.4270692, a: 0.49019608}
+  m_Intensity: 6.22
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 0000000045c3935d
+  m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 21300022, guid: addd2af175d074643a3b1f29f6c23041, type: 3}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -115,7 +115,7 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!58 &1187585388733629626
+--- !u!58 &7472141644210136681
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,10 +147,10 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.014731884}
+  m_Offset: {x: -0.0050365925, y: 0}
   serializedVersion: 2
-  m_Radius: 1.2611598
---- !u!114 &7574766163688391786
+  m_Radius: 1.2203231
+--- !u!114 &9218596134835677530
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,7 +162,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c737c098268934882e8a058ef9778b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagerate: 5
+  damagerate: 3
+  objectlife: 3
+  light2d: {fileID: 7538566631005212495}
 --- !u!1 &4871907940828344798
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,7 +244,7 @@ Transform:
   m_GameObject: {fileID: 9012790485902545765}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.01821661, y: -0.32465887, z: 0}
+  m_LocalPosition: {x: -0.01821661, y: -0.211, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 1
   m_Children:

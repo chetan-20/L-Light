@@ -8,7 +8,7 @@ public class MoveObject : MonoBehaviour
     [SerializeField] protected Transform PointA;
     [SerializeField] protected Transform PointB;    
     [SerializeField] protected float MovingSpeed;
-    [SerializeField] protected SpriteRenderer sprite;
+    [SerializeField] protected SpriteRenderer sprite;   
     private int direction = 1;
     
     void Update()
