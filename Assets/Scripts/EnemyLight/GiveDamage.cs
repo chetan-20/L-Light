@@ -24,6 +24,7 @@ public class GiveDamage : MonoBehaviour
     {
         if (isinrange && objectlife>0)
         {
+            SoundManager.Instance.PlaySound(Sounds.HealthLostSound);
             Givedamage();          
         }
     } 

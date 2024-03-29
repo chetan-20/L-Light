@@ -8,6 +8,7 @@ public class AttackScript : MonoBehaviour
     {
         if(collision.gameObject.GetComponent<GiveDamage>() != null)
         {
+            SoundManager.Instance.PlaySound(Sounds.LightOffSound);
             GiveDamage givedamageobj = collision.gameObject.GetComponent<GiveDamage>();
             givedamageobj.objectlife--;           
         }
