@@ -41,7 +41,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlayFootStep()
     {                
-        footstepsSound.enabled = true;                  
+        footstepsSound.enabled = true;       
     }
     public void StopFootSound()
     {
