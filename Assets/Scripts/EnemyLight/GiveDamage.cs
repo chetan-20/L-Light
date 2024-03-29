@@ -24,8 +24,7 @@ public class GiveDamage : MonoBehaviour
     {
         if (isinrange && objectlife>0)
         {
-            Givedamage();
-            Debug.Log("Player HP : " + PlayerControler.instance.playerhealth);
+            Givedamage();          
         }
     } 
     private void OnTriggerExit2D(Collider2D collision)

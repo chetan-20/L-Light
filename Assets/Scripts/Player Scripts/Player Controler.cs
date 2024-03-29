@@ -16,7 +16,7 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] private float jumpspeed = 1;
     [SerializeField] internal BoxCollider2D attackhitbox;
     [SerializeField] private Animator animator;
-
+    [SerializeField] private BoxCollider2D WinTrigger;
     private void Awake()
     {
         instance = this;
@@ -28,7 +28,7 @@ public class PlayerControler : MonoBehaviour
         defaultspeed = movingspeed;
         slidingspeed = movingspeed * 2;
         attackhitbox.enabled = false;
-        Debug.Log("Player hp : " + playerhealth);
+        Time.timeScale = 1f;      
     }
     private void Update()
     {
@@ -36,6 +36,7 @@ public class PlayerControler : MonoBehaviour
         JumpPlayer();
         SlidePlayer();
         Attack();
+        LevelLost();
     }
     private void MovePlayer()
     {
@@ -100,5 +101,21 @@ public class PlayerControler : MonoBehaviour
         issliding = false;
         movingspeed = defaultspeed;
         animator.SetBool("IsSliding", false);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision == WinTrigger)
+        {
+            LevelManager.Instance.OnGameWon();
+        }
+    }
+
+    private void LevelLost()
+    {
+        if (playerhealth <= 0)
+        {
+            LevelManager.Instance.OnGameLost();
+        }
     }
 }
