@@ -17,14 +17,17 @@ public class GiveDamage : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PlayerControler>() != null)
         {
-            isinrange = true;                     
+            isinrange = true;
+            if (objectlife > 0)
+            {
+                SoundManager.Instance.PlaySound(Sounds.HealthLostSound);
+            }
         }                   
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (isinrange && objectlife>0)
-        {
-            SoundManager.Instance.PlaySound(Sounds.HealthLostSound);
+        {           
             Givedamage();          
         }
     } 

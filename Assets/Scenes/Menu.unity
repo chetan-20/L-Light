@@ -495,7 +495,23 @@ MonoBehaviour:
   footstepsSound: {fileID: 1977164662}
   SoundEffect: {fileID: 1256167589}
   SoundMusic: {fileID: 1268312733}
-  Sounds: []
+  Sounds:
+  - soundtype: 0
+    soundclip: {fileID: 8300000, guid: 24d73765699ce3e46bb23cabc3a46494, type: 3}
+  - soundtype: 1
+    soundclip: {fileID: 8300000, guid: 87e2452fe2c754248926c9a9ab93a467, type: 3}
+  - soundtype: 2
+    soundclip: {fileID: 8300000, guid: d1698dd553af8ef4d887bc83b9687173, type: 3}
+  - soundtype: 3
+    soundclip: {fileID: 8300000, guid: 2ebf2421dddc15a45b7fc6ae8197b1c0, type: 3}
+  - soundtype: 4
+    soundclip: {fileID: 8300000, guid: e7992d172691ce147bde04a9ea103f2c, type: 3}
+  - soundtype: 5
+    soundclip: {fileID: 8300000, guid: 26e19616f6ba9f6469e9d3d6c38b23fe, type: 3}
+  - soundtype: 6
+    soundclip: {fileID: 8300000, guid: 5ab8fc664ca4d604f820e255005a664a, type: 3}
+  - soundtype: 7
+    soundclip: {fileID: 8300000, guid: 00b18e15346f38a4e8535ac98e4ac9ee, type: 3}
 --- !u!81 &876464345
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1148,7 +1164,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
