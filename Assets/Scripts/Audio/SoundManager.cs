@@ -25,14 +25,12 @@ public class SoundManager : MonoBehaviour
     }
     private void Start()
     {
-        PlayMusic(global::Sounds.BGMusic);
+        PlayMusic();
     }
-    public void PlayMusic(Sounds sound)
-    {      
-        AudioClip clip = GetSoundClip(sound);
-        if (clip != null)
-        {
-            SoundMusic.clip = clip;
+    private void PlayMusic()
+    {            
+        if (SoundMusic != null)
+        {          
             SoundMusic.Play();
         }
         else
@@ -41,16 +39,9 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void PlayFootStep(float horispeed)
-    {       
-            if (horispeed != 0)
-            {
-                footstepsSound.enabled = true;
-            }
-            else
-            {
-                footstepsSound.enabled = false;
-            }       
+    public void PlayFootStep()
+    {                
+        footstepsSound.enabled = true;       
     }
     public void StopFootSound()
     {
@@ -89,8 +80,7 @@ public class SoundType
 }
 
 public enum Sounds
-{
-    BGMusic,
+{  
     ButtonClick,
     AttackSound,
     DeathSound,
@@ -98,5 +88,5 @@ public enum Sounds
     SlideSound,
     HealthLostSound,
     LevelCompleteSound,
-    LevelFallLostSound,  
+    LightOffSound
 }

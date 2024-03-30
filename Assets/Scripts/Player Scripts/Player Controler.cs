@@ -42,18 +42,21 @@ public class PlayerControler : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.D))
         {
+            SoundManager.Instance.PlayFootStep();
             rb.velocity = new Vector2(movingspeed, rb.velocity.y);
             rbSprite.flipX = false;
             animator.SetBool("IsMoving", true);          
         }
         else if (Input.GetKey(KeyCode.A))
         {
+            SoundManager.Instance.PlayFootStep();
             rb.velocity = new Vector2(-movingspeed, rb.velocity.y);
             rbSprite.flipX = true;
             animator.SetBool("IsMoving", true);           
         }
         else
-        {            
+        {
+            SoundManager.Instance.StopFootSound();
             rb.velocity = new Vector2(0f, rb.velocity.y);
             animator.SetBool("IsMoving", false);           
         }
@@ -62,6 +65,7 @@ public class PlayerControler : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space) && !issliding && !isjumping)
         {
+            SoundManager.Instance.PlaySound(Sounds.JumpSound);
             rb.velocity = new Vector2(rb.velocity.x, jumpspeed);
             animator.SetBool("IsJumping", true);
             isjumping = true;
@@ -71,6 +75,7 @@ public class PlayerControler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftShift) && !isjumping && !issliding)
         {
+            SoundManager.Instance.PlaySound(Sounds.SlideSound);
             issliding = true;
             animator.SetBool("IsSliding", true);
             movingspeed = slidingspeed;
@@ -80,6 +85,7 @@ public class PlayerControler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) && !issliding && !isjumping)
         {
+            SoundManager.Instance.PlaySound(Sounds.AttackSound);
             animator.SetBool("IsAttacking", true);          
             attackhitbox.enabled = true;
             attackhitbox.transform.localPosition = new Vector2(rbSprite.flipX ? -2.5f : 0f, attackhitbox.transform.localPosition.y);           
@@ -107,6 +113,7 @@ public class PlayerControler : MonoBehaviour
     {
         if(collision == WinTrigger)
         {
+            SoundManager.Instance.PlaySound(Sounds.LevelCompleteSound);
             LevelManager.Instance.OnGameWon();
         }
     }
@@ -115,6 +122,7 @@ public class PlayerControler : MonoBehaviour
     {
         if (playerhealth <= 0)
         {
+            SoundManager.Instance.PlaySound(Sounds.DeathSound);
             LevelManager.Instance.OnGameLost();
         }
     }
