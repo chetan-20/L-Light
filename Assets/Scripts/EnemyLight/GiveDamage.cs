@@ -17,15 +17,14 @@ public class GiveDamage : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PlayerControler>() != null)
         {
-            isinrange = true;                     
+            isinrange = true;          
         }                   
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (isinrange && objectlife>0)
-        {
-            Givedamage();
-            Debug.Log("Player HP : " + PlayerControler.instance.playerhealth);
+        {           
+            Givedamage();          
         }
     } 
     private void OnTriggerExit2D(Collider2D collision)

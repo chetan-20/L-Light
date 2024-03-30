@@ -21,7 +21,6 @@ public class MoveObject : MonoBehaviour
             direction *= -1;
         }
     }
-
     private Vector2 CurrentMovementTarget()
     {
         if (direction == 1)
