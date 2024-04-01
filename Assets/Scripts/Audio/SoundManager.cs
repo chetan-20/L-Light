@@ -6,11 +6,10 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     private static SoundManager instance;
-    public static SoundManager Instance { get { return instance; } }
-    public AudioSource footstepsSound;
-    public AudioSource SoundEffect;
-    public AudioSource SoundMusic;   
-    public SoundType[] Sounds;
+    public static SoundManager Instance { get { return instance; } }   
+    [SerializeField] private AudioSource SoundEffect;
+    [SerializeField] private AudioSource SoundMusic;
+    [SerializeField] private SoundType[] Sounds;
     void Awake()
     {
         if (instance == null)
@@ -37,15 +36,6 @@ public class SoundManager : MonoBehaviour
         {
             Debug.Log("Audio Not Assigned");
         }
-    }
-
-    public void PlayFootStep()
-    {                
-        footstepsSound.enabled = true;       
-    }
-    public void StopFootSound()
-    {
-        footstepsSound.enabled = false;
     }
     public void PlaySound(Sounds sound)
     {      

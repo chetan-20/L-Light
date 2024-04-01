@@ -37,6 +37,7 @@ public class GiveDamage : MonoBehaviour
     private void Givedamage()
     {
         PlayerControler.instance.playerhealth -= (damagerate * Time.deltaTime);
+        HealthManager.Instance.UpdateHealthBar();
     } 
     private void DisableLight()
     {

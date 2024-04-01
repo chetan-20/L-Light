@@ -41,22 +41,19 @@ public class PlayerControler : MonoBehaviour
     private void MovePlayer()
     {
         if (Input.GetKey(KeyCode.D))
-        {
-            SoundManager.Instance.PlayFootStep();
+        {          
             rb.velocity = new Vector2(movingspeed, rb.velocity.y);
             rbSprite.flipX = false;
             animator.SetBool("IsMoving", true);          
         }
         else if (Input.GetKey(KeyCode.A))
-        {
-            SoundManager.Instance.PlayFootStep();
+        {         
             rb.velocity = new Vector2(-movingspeed, rb.velocity.y);
             rbSprite.flipX = true;
             animator.SetBool("IsMoving", true);           
         }
         else
-        {
-            SoundManager.Instance.StopFootSound();
+        {           
             rb.velocity = new Vector2(0f, rb.velocity.y);
             animator.SetBool("IsMoving", false);           
         }

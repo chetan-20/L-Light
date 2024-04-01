@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class HealthManager : MonoBehaviour
 {
     [SerializeField] private Image healthbar;
+    public static HealthManager Instance;
 
-    private void Update()
+    private void Awake()
     {
-        UpdateHealthBar();
+        Instance = this;
     }
-
-    private void UpdateHealthBar()
+    public void UpdateHealthBar()
     {
         if (healthbar.fillAmount >= 0)
         {
