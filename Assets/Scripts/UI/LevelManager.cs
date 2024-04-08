@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour
     }
     public void OnGameWon()
     {
+        SoundManager.Instance.PlaySound(Sounds.LevelCompleteSound);
         Time.timeScale = 0f;
         LevelObject.SetActive(false);
         LevelLostPanel.SetActive(false);
@@ -24,6 +25,7 @@ public class LevelManager : MonoBehaviour
     }
     public void OnGameLost()
     {
+        SoundManager.Instance.PlaySound(Sounds.DeathSound);
         Time.timeScale = 0f;
         LevelObject.SetActive(false);
         LevelLostPanel.SetActive(true);

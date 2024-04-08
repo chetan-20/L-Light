@@ -30,10 +30,11 @@ public class PlayerControler : MonoBehaviour
         attackhitbox.enabled = false;
         Time.timeScale = 1f;      
     }
+   
     private void Update()
-    {
+    {  
         MovePlayer();
-        JumpPlayer();
+        JumpPlayer();      
         SlidePlayer();
         Attack();
         LevelLost();
@@ -109,8 +110,7 @@ public class PlayerControler : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision == WinTrigger)
-        {
-            SoundManager.Instance.PlaySound(Sounds.LevelCompleteSound);
+        {          
             LevelManager.Instance.OnGameWon();
         }
     }
@@ -118,8 +118,7 @@ public class PlayerControler : MonoBehaviour
     private void LevelLost()
     {
         if (playerhealth <= 0)
-        {
-            SoundManager.Instance.PlaySound(Sounds.DeathSound);
+        {           
             LevelManager.Instance.OnGameLost();
         }
     }
