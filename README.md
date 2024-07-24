@@ -13,6 +13,12 @@ MB1 to attack
 
 Attack The light to disable it.
 
+Used Singleton For Sound.
+
+Used Unty Animator for animation and Transition.
+
+Used URP for Light. 
+
 WebGL Link : https://chet00.itch.io/l-light
 (On Game End it acts weird in WebGL build)
 
