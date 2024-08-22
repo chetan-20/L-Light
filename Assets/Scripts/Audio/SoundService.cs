@@ -9,24 +9,18 @@ public class SoundService : MonoBehaviour
     [SerializeField] private bool IsMute = false;
     [SerializeField] private SoundType[] audioClips;
 
-    private void Start()
-    {
-        PlayMusic();
-    }
-    private void PlayMusic()
+   
+    private void SetMusicStatus()
     {
         if (IsMute)
         {
-            soundMusic.Stop();
+            soundMusic.volume = 0f;
             return;
         }
-        else if (soundMusic != null)
-        {
-            soundMusic.Play();
-        }
-        {
-            Debug.Log("Audio Not Assigned");
-        }
+        else 
+        {           
+            soundMusic.volume = 0.5f;
+        }      
     }
     public void PlaySound(Sounds sound)
     {
@@ -55,9 +49,10 @@ public class SoundService : MonoBehaviour
     }
     public void ToggleMute()
     {
-        IsMute = !IsMute;
+        IsMute = !IsMute;       
         if (IsMute) { GameService.Instance.GetPopUpService().ShowPopupMessage("Muted"); }
         else { GameService.Instance.GetPopUpService().ShowPopupMessage("Un-Muted"); }
+        SetMusicStatus();
     }
     public void PlayFootStep()
     {
