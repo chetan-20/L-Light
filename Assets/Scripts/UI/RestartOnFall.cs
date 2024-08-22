@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +7,7 @@ public class RestartOnFall : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PlayerControler>() != null)
         {
-            SoundManager.Instance.PlaySound(Sounds.DeathSound);
+            GameService.Instance.GetSoundService().PlaySound(Sounds.DeathSound);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
