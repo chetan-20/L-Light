@@ -11,7 +11,7 @@ public class UIService : MonoBehaviour
     //[SerializeField] private Button restartButton;
     [SerializeField] private GameObject menuObject;
     //[SerializeField] private GameObject levelWonObject;
-    //[SerializeField] private GameObject levellostObject;
+    //[SerializeField] private GameObject levellostObject;   
     private void Start()
     {
         SetButtons();
@@ -26,22 +26,22 @@ public class UIService : MonoBehaviour
     }
     private void LoadMenu()
     {
-        GameService.Instance.GetSoundService().PlaySound(Sounds.ButtonClick);
+        GameService.Instance.GetSoundService().PlayClickSound();
         SceneManager.LoadScene(0);
     }
     private void LoadNext()
     {
-        GameService.Instance.GetSoundService().PlaySound(Sounds.ButtonClick);
+        GameService.Instance.GetSoundService().PlayClickSound();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     private void RestartLevel()
     {
-        GameService.Instance.GetSoundService().PlaySound(Sounds.ButtonClick);
+        GameService.Instance.GetSoundService().PlayClickSound();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     private void QuitGame()
     {
-        GameService.Instance.GetSoundService().PlaySound(Sounds.ButtonClick);
+        GameService.Instance.GetSoundService().PlayClickSound();
         Application.Quit();
-    }
+    }  
 }

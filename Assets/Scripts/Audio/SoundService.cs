@@ -8,8 +8,9 @@ public class SoundService : MonoBehaviour
     [SerializeField] private AudioSource footStep;
     [SerializeField] private bool IsMute = false;
     [SerializeField] private SoundType[] audioClips;
-
    
+
+    public void PlayClickSound()=>PlaySound(Sounds.ButtonClick); 
     private void SetMusicStatus()
     {
         if (IsMute)
@@ -61,7 +62,7 @@ public class SoundService : MonoBehaviour
     public void StopFootStep()
     {
         footStep.enabled = false;
-    }
+    }  
 }
 
 [Serializable]
