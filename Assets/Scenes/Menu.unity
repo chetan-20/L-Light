@@ -414,11 +414,7 @@ MonoBehaviour:
   playButton: {fileID: 2058192306}
   quitButton: {fileID: 1573243145}
   muteButton: {fileID: 1886698647}
-  menuButton: {fileID: 0}
-  restartButton: {fileID: 0}
   menuObject: {fileID: 1985669508}
-  levelWonObject: {fileID: 0}
-  levellostObject: {fileID: 0}
 --- !u!1 &606698019
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,7 +853,7 @@ MonoBehaviour:
   IsMute: 0
   audioClips:
   - soundtype: 0
-    soundclip: {fileID: 0}
+    soundclip: {fileID: 8300000, guid: 24d73765699ce3e46bb23cabc3a46494, type: 3}
   - soundtype: 1
     soundclip: {fileID: 0}
   - soundtype: 2
