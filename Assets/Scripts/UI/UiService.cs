@@ -7,11 +7,14 @@ public class UIService : MonoBehaviour
     [SerializeField] private Button playButton;
     [SerializeField] private Button quitButton;
     [SerializeField] private Button muteButton;
-    //[SerializeField] private Button menuButton;
-    //[SerializeField] private Button restartButton;
+    [SerializeField] private Button menuButton1;
+    //[SerializeField] private Button menuButton2;
+    [SerializeField] private Button restartButton1;
+    [SerializeField] private Button restartButton2;
+    [SerializeField] private Button nextButton;
     [SerializeField] private GameObject menuObject;
-    //[SerializeField] private GameObject levelWonObject;
-    //[SerializeField] private GameObject levellostObject;   
+    [SerializeField] private GameObject levelWonObject;
+    [SerializeField] private GameObject levellostObject;   
     private void Start()
     {
         SetButtons();
@@ -21,8 +24,10 @@ public class UIService : MonoBehaviour
         playButton.onClick.AddListener(LoadNext);
         muteButton.onClick.AddListener(GameService.Instance.GetSoundService().ToggleMute);
         quitButton.onClick.AddListener(QuitGame);
-        //menuButton.onClick.AddListener(LoadMenu);
-        //restartButton.onClick.AddListener(RestartLevel);
+        menuButton1.onClick.AddListener(LoadMenu);
+        //menuButton2.onClick.AddListener(LoadMenu);
+        restartButton1.onClick.AddListener(RestartLevel);
+        restartButton2.onClick.AddListener(RestartLevel);
     }
     private void LoadMenu()
     {
