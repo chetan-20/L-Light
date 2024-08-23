@@ -40,21 +40,21 @@ public class PlayerControler : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.D))
         {
-            GameService.Instance.GetSoundService().PlayFootStep();
+            GameService.Instance.SoundService.PlayFootStep();
             rb.velocity = new Vector2(movingspeed, rb.velocity.y);
             rbSprite.flipX = false;
             animator.SetBool("IsMoving", true);          
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            GameService.Instance.GetSoundService().PlayFootStep();
+            GameService.Instance.SoundService.PlayFootStep();
             rb.velocity = new Vector2(-movingspeed, rb.velocity.y);
             rbSprite.flipX = true;
             animator.SetBool("IsMoving", true);           
         }
         else
         {
-            GameService.Instance.GetSoundService().StopFootStep();
+            GameService.Instance.SoundService.StopFootStep();
             rb.velocity = new Vector2(0f, rb.velocity.y);
             animator.SetBool("IsMoving", false);           
         }
@@ -63,7 +63,7 @@ public class PlayerControler : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space) && !issliding && !isjumping)
         {
-            GameService.Instance.GetSoundService().PlaySound(Sounds.JumpSound);
+            GameService.Instance.SoundService.PlaySound(Sounds.JumpSound);
             rb.velocity = new Vector2(rb.velocity.x, jumpspeed);
             animator.SetBool("IsJumping", true);
             isjumping = true;
@@ -73,7 +73,7 @@ public class PlayerControler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftShift) && !isjumping && !issliding)
         {
-            GameService.Instance.GetSoundService().PlaySound(Sounds.SlideSound);
+            GameService.Instance.SoundService.PlaySound(Sounds.SlideSound);
             issliding = true;
             animator.SetBool("IsSliding", true);
             movingspeed = slidingspeed;
@@ -83,7 +83,7 @@ public class PlayerControler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) && !issliding && !isjumping)
         {
-            GameService.Instance.GetSoundService().PlaySound(Sounds.AttackSound);
+            GameService.Instance.SoundService.PlaySound(Sounds.AttackSound);
             animator.SetBool("IsAttacking", true);          
             attackhitbox.enabled = true;
             attackhitbox.transform.localPosition = new Vector2(rbSprite.flipX ? -2.5f : 0f, attackhitbox.transform.localPosition.y);           
@@ -111,8 +111,8 @@ public class PlayerControler : MonoBehaviour
     {
         if(collision == WinTrigger)
         {
-            GameService.Instance.GetSoundService().PlaySound(Sounds.LevelCompleteSound);
-            LevelManager.Instance.OnGameWon();
+            GameService.Instance.SoundService.PlaySound(Sounds.LevelCompleteSound);
+            GameService.Instance.UIService.InvokeGameWon();
         }
     }
 
@@ -120,8 +120,7 @@ public class PlayerControler : MonoBehaviour
     {
         if (playerhealth <= 0)
         {
-            GameService.Instance.GetSoundService().PlaySound(Sounds.DeathSound);
-            LevelManager.Instance.OnGameLost();
+            GameService.Instance.SoundService.PlaySound(Sounds.DeathSound);           
         }
     }
 }

@@ -2,16 +2,20 @@ using UnityEngine;
 
 public class MoveObject : MonoBehaviour
 {
-    [SerializeField] protected Transform BaseObject;
-    [SerializeField] protected Transform PointA;
-    [SerializeField] protected Transform PointB;    
-    [SerializeField] protected float MovingSpeed;
-    [SerializeField] protected SpriteRenderer sprite;   
+    [SerializeField] private Transform BaseObject;
+    [SerializeField] private Transform PointA;
+    [SerializeField] private Transform PointB;    
+    [SerializeField] private float MovingSpeed;
+    [SerializeField] private SpriteRenderer sprite;   
     private int direction = 1;
     
     void Update()
     {
-        Vector2 Target = CurrentMovementTarget();
+        Move();
+    }
+    private void Move()
+    {
+        Vector2 Target = CurrentTarget();
         BaseObject.position = Vector2.Lerp(BaseObject.position, Target, MovingSpeed * Time.deltaTime);
         float distance = (Target - (Vector2)BaseObject.position).magnitude;
         if (distance <= 0.1f)
@@ -19,7 +23,7 @@ public class MoveObject : MonoBehaviour
             direction *= -1;
         }
     }
-    private Vector2 CurrentMovementTarget()
+    private Vector2 CurrentTarget()
     {
         if (direction == 1)
         {

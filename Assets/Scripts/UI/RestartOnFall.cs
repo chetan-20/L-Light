@@ -7,7 +7,7 @@ public class RestartOnFall : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PlayerControler>() != null)
         {
-            GameService.Instance.GetSoundService().PlaySound(Sounds.DeathSound);
+            GameService.Instance.SoundService.PlaySound(Sounds.DeathSound);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }

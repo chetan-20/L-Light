@@ -1649,6 +1649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundService: {fileID: 876464344}
   popUpService: {fileID: 1122411974}
+  uiService: {fileID: 252901302}
 --- !u!1 &824744783
 GameObject:
   m_ObjectHideFlags: 0

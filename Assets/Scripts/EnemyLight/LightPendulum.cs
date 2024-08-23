@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Pendulum : MonoBehaviour
+public class LightPendulum : MonoBehaviour
 {   
     [SerializeField] private float speed = 1f;
     [SerializeField] private float minRotation = 140f;
@@ -11,4 +11,5 @@ public class Pendulum : MonoBehaviour
         float rotation = Mathf.Lerp(minRotation, maxRotation, (angle+1f)/2f);        
         transform.rotation = Quaternion.Euler(0f, 0f, rotation);
     }
+   
 }
