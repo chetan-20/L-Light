@@ -43,7 +43,7 @@ public class UIService : MonoBehaviour
     private void LoadNext()
     {
         GameService.Instance.SoundService.PlayClickSound();
-        menuObject.SetActive(false);
+        levelWonObject.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         Time.timeScale = 1.0f;
     }

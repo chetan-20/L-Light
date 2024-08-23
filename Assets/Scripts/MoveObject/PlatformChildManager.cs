@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-public class MovePlatform : MonoBehaviour
+public class PlatformChildManager : MonoBehaviour
 {    
     private void OnCollisionEnter2D(Collision2D collision)
     {
