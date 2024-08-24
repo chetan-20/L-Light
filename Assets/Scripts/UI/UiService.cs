@@ -64,8 +64,7 @@ public class UIService : MonoBehaviour
     }
     public void InvokeGameWon()=>OnGameWon?.Invoke();
     private void OnLevelWin()
-    {        
-        Time.timeScale = 0f;
+    {              
         levelWonObject.SetActive(true);
         healthObject.SetActive(false);
         greenHealthBar.fillAmount = 100f;
