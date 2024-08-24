@@ -1,8 +1,7 @@
 using UnityEngine;
 
 public class PlayerControler
-{  
-   
+{    
     private PlayerView playerView;
     private PlayerModel playerModel;
 
@@ -106,6 +105,14 @@ public class PlayerControler
         if (playerView.healthbar.fillAmount >= 0)
         {
             playerView.healthbar.fillAmount = playerModel.playerhealth / 100f;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        collision.gameObject.TryGetComponent(out EnemyDamageHandler enemy);
+        if (enemy != null)
+        {
+            enemy.TakeDamage();
         }
     }
 

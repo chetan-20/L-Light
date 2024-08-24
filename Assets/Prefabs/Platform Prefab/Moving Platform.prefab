@@ -44,6 +44,8 @@ GameObject:
   - component: {fileID: 2685835715697105881}
   - component: {fileID: 5825216512828475659}
   - component: {fileID: 1096652745455298033}
+  - component: {fileID: 6896848927244451319}
+  - component: {fileID: 3109317636826410149}
   m_Layer: 0
   m_Name: Snow_platform_0001
   m_TagString: Untagged
@@ -148,10 +150,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0035196543, y: 0.28818733}
+  m_Offset: {x: 0.0011390299, y: 0.30123192}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -162,7 +164,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9064028, y: 0.28810644}
+  m_Size: {x: 0.9302089, y: 0.35985112}
   m_EdgeRadius: 0
 --- !u!114 &5825216512828475659
 MonoBehaviour:
@@ -203,6 +205,66 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &6896848927244451319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3870006808327145350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11c737c098268934882e8a058ef9778b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagerate: 5
+  objectlife: 5
+  light2d: {fileID: 4906011164985122433}
+--- !u!61 &3109317636826410149
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3870006808327145350}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0015871525, y: 0.2967627}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.9396907, y: 0.36081886}
+  m_EdgeRadius: 0
 --- !u!1 &4664431328340669820
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,7 +358,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2704012044358718348}
   - component: {fileID: 4906011164985122433}
-  - component: {fileID: 7628007021027540801}
   m_Layer: 0
   m_Name: Light 2D
   m_TagString: Untagged
@@ -353,8 +414,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.0009499788, y: 0.2851, z: 0}
-    m_Extent: {x: 0.95005, y: 0.7046, z: 0}
+    m_Center: {x: 0.009050012, y: 0.29035002, z: 0}
+    m_Extent: {x: 0.95975, y: 0.71185, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -374,18 +435,3 @@ MonoBehaviour:
   - {x: 0.46014643, y: 0.4654398, z: 0}
   - {x: 0.0012021065, y: 0.49409962, z: 0}
   - {x: -0.44719124, y: 0.47035837, z: 0}
---- !u!114 &7628007021027540801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9002871056919165122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11c737c098268934882e8a058ef9778b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damagerate: 7
-  objectlife: 3
-  light2d: {fileID: 4906011164985122433}
