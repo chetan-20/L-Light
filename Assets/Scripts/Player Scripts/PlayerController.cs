@@ -1,113 +1,117 @@
 using UnityEngine;
 
-public class PlayerControler : MonoBehaviour
+public class PlayerControler
 {  
    
-    
-    
-    private void Awake()
+    private PlayerView playerView;
+    private PlayerModel playerModel;
+
+    public PlayerControler(PlayerView playerView)
     {
-        instance = this;
-        rb = GetComponent<Rigidbody2D>();
-        rbSprite = rb.GetComponent<SpriteRenderer>();
+        this.playerView = playerView;
+        playerModel = new PlayerModel();
     }
-    private void Start()
+      
+    public void Start()
     {
-        defaultspeed = movingspeed;
-        slidingspeed = movingspeed * 2;
-        attackhitbox.enabled = false;
-        Time.timeScale = 1f;      
+        playerModel.defaultspeed = playerModel.movingspeed;
+        playerModel.slidingspeed = playerModel.movingspeed * 2;
+        playerView.attackhitbox.enabled = false;            
     }
-    private void Update()
+    public void Update()
     {
         MovePlayer();
         JumpPlayer();
         SlidePlayer();
         Attack();
         LevelLost();
+        UpdateHealthBar();
     }
     private void MovePlayer()
     {
         if (Input.GetKey(KeyCode.D))
         {
             GameService.Instance.SoundService.PlayFootStep();
-            rb.velocity = new Vector2(movingspeed, rb.velocity.y);
-            rbSprite.flipX = false;
-            animator.SetBool("IsMoving", true);          
+            playerView.rb.velocity = new Vector2(playerModel.movingspeed, playerView.rb.velocity.y);
+            playerView.rbSprite.flipX = false;
+            playerView.animator.SetBool("IsMoving", true);          
         }
         else if (Input.GetKey(KeyCode.A))
         {
             GameService.Instance.SoundService.PlayFootStep();
-            rb.velocity = new Vector2(-movingspeed, rb.velocity.y);
-            rbSprite.flipX = true;
-            animator.SetBool("IsMoving", true);           
+            playerView.rb.velocity = new Vector2(-playerModel.movingspeed, playerView.rb.velocity.y);
+            playerView.rbSprite.flipX = true;
+            playerView.animator.SetBool("IsMoving", true);           
         }
         else
         {
             GameService.Instance.SoundService.StopFootStep();
-            rb.velocity = new Vector2(0f, rb.velocity.y);
-            animator.SetBool("IsMoving", false);           
+            playerView.rb.velocity = new Vector2(0f, playerView.rb.velocity.y);
+            playerView.animator.SetBool("IsMoving", false);           
         }
     }
     private void JumpPlayer()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && !issliding && !isjumping)
+        if(Input.GetKeyDown(KeyCode.Space) && !playerModel.issliding && !playerModel.isjumping)
         {
             GameService.Instance.SoundService.PlaySound(Sounds.JumpSound);
-            rb.velocity = new Vector2(rb.velocity.x, jumpspeed);
-            animator.SetBool("IsJumping", true);
-            isjumping = true;
+            playerView.rb.velocity = new Vector2(playerView.rb.velocity.x, playerModel.jumpspeed);
+            playerView.animator.SetBool("IsJumping", true);
+            playerModel.isjumping = true;
         }
     }   
     private void SlidePlayer()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !isjumping && !issliding)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !playerModel.isjumping && !playerModel.issliding)
         {
             GameService.Instance.SoundService.PlaySound(Sounds.SlideSound);
-            issliding = true;
-            animator.SetBool("IsSliding", true);
-            movingspeed = slidingspeed;
+            playerModel.issliding = true;
+            playerView.animator.SetBool("IsSliding", true);
+            playerModel.movingspeed = playerModel.slidingspeed;
         }
     }   
     private void Attack()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !issliding && !isjumping)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !playerModel.issliding && !playerModel.isjumping & !playerModel.isjumping)
         {
             GameService.Instance.SoundService.PlaySound(Sounds.AttackSound);
-            animator.SetBool("IsAttacking", true);          
-            attackhitbox.enabled = true;
-            attackhitbox.transform.localPosition = new Vector2(rbSprite.flipX ? -2.5f : 0f, attackhitbox.transform.localPosition.y);           
+            playerView.animator.SetBool("IsAttacking", true);
+            playerView.attackhitbox.enabled = true;
+            playerView.attackhitbox.transform.localPosition = new Vector2(playerView.rbSprite.flipX ? -2.5f : 0f, playerView.attackhitbox.transform.localPosition.y);           
         }
-    }
-   
+    }  
     private void TurnOffAttack()
     {
-        animator.SetBool("IsAttacking", false);
-        attackhitbox.enabled = false;
+        playerView.animator.SetBool("IsAttacking", false);
+        playerView.attackhitbox.enabled = false;
     } 
     private void TurnOffJump()
     {
-        animator.SetBool("IsJumping", false);
-        isjumping = false;
+        playerView.animator.SetBool("IsJumping", false);
+        playerModel.isjumping = false;
     } 
     private void TurnOffSlide()
     {
-        issliding = false;
-        movingspeed = defaultspeed;
-        animator.SetBool("IsSliding", false);
+        playerModel.issliding = false;
+        playerModel.movingspeed = playerModel.defaultspeed;
+        playerView.animator.SetBool("IsSliding", false);
     }
-
    
     public void TakeDamage(int damagerate)
     {
-        playerhealth-= (damagerate*Time.deltaTime);
+        playerModel.playerhealth -= (damagerate*Time.deltaTime);
+    }    
+    private void UpdateHealthBar()
+    {
+        if (playerView.healthbar.fillAmount >= 0)
+        {
+            playerView.healthbar.fillAmount = playerModel.playerhealth / 100f;
+        }
     }
-    public float GetPlayerHealth() => playerhealth;
-   
 
     private void LevelLost()
     {
-        if (playerhealth <= 0)
+        if (playerModel.playerhealth <= 0)
         {
             GameService.Instance.SoundService.PlaySound(Sounds.DeathSound);           
         }

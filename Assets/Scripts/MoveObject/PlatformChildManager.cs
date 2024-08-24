@@ -5,7 +5,7 @@ public class PlatformChildManager : MonoBehaviour
 {    
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerControler>() != null)
+        if (collision.gameObject.GetComponent<PlayerView>() != null)
         {
             collision.transform.SetParent(this.transform);           
         }       
@@ -13,7 +13,7 @@ public class PlatformChildManager : MonoBehaviour
     
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerControler>() != null)
+        if (collision.gameObject.GetComponent<PlayerView>() != null)
         {
             collision.transform.SetParent(null);            
         }

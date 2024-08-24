@@ -17,7 +17,7 @@ public class EnemyDamageHandler : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerControler>() != null)
+        if (collision.gameObject.GetComponent<PlayerView>() != null)
         {
             isinrange = true;          
         }                   
@@ -31,14 +31,14 @@ public class EnemyDamageHandler : MonoBehaviour
     } 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerControler>() != null)
+        if (collision.gameObject.GetComponent<PlayerView>() != null)
         {
             isinrange = false;
         }
     }
     private void Givedamage()
     {
-        PlayerControler.instance.TakeDamage(damagerate);
+       GameService.Instance.PlayerController.TakeDamage(damagerate);
     }
     private void DisableLight()
     {

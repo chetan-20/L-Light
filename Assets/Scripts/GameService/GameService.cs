@@ -12,7 +12,7 @@ public class GameService : MonoBehaviour
     public LevelService LevelService { get { return levelService; } }
     private static GameService instance;
     public static GameService Instance { get { return instance; } }
-
+    public PlayerControler PlayerController { get; private set; }
     private void Awake()
     {
         if (instance == null)
@@ -24,5 +24,5 @@ public class GameService : MonoBehaviour
             Destroy(gameObject);
         }
     }  
-    
+    public void SetCurrentPlayerController(PlayerControler playerController) => PlayerController = playerController;
 }

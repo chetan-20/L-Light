@@ -16,6 +16,8 @@ public class UIService : MonoBehaviour
     [SerializeField] private GameObject menuObject;
     [SerializeField] private GameObject levelWonObject;
     [SerializeField] private GameObject levellostObject;
+    [SerializeField] private GameObject healthObject;
+    public Image greenHealthBar;
     private event Action OnGameWon;
     private void OnEnable()
     {
@@ -46,6 +48,7 @@ public class UIService : MonoBehaviour
         GameService.Instance.SoundService.PlayClickSound();
         GameService.Instance.LevelService.SpawnLevel(GameService.Instance.LevelService.CurrentLevelNumber+1);
         DisableUIPanels();
+        healthObject.SetActive(true);
         Time.timeScale = 1.0f;
     }
     private void RestartLevel()
@@ -69,6 +72,7 @@ public class UIService : MonoBehaviour
         menuObject.SetActive(false);
         levellostObject.SetActive(false);
         levelWonObject.SetActive(false);
+        healthObject.SetActive(false);
     }
     private void OnDisable()
     {

@@ -1,10 +1,29 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerView : MonoBehaviour
 {
-    [SerializeField] private BoxCollider2D attackhitbox;
-    [SerializeField] private Animator animator;
-    public static PlayerControler instance;
-    private Rigidbody2D rb;
-    private SpriteRenderer rbSprite;
+    public BoxCollider2D attackhitbox;
+    public Animator animator;   
+    public Rigidbody2D rb;
+    public SpriteRenderer rbSprite;
+    public Image healthbar;
+    private PlayerControler playerControler;
+    private void Awake()
+    {
+        playerControler = new PlayerControler(this);
+    }
+    private void Start()
+    {
+        GameService.Instance.SetCurrentPlayerController(playerControler);
+        playerControler.Start();
+        healthbar = GameService.Instance.UIService.greenHealthBar;
+    }
+    private void Update()
+    {
+        if(playerControler != null)
+        {
+            playerControler.Update();
+        }
+    }
 }
