@@ -7,7 +7,7 @@ public class AttackScript : MonoBehaviour
         if(collision.gameObject.GetComponent<GiveDamage>() != null)
         {           
             GiveDamage givedamageobj = collision.gameObject.GetComponent<GiveDamage>();
-            givedamageobj.objectlife--;           
+            givedamageobj.TakeDamage();           
         }
     }
 }

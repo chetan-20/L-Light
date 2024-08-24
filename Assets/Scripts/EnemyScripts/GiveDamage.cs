@@ -3,14 +3,18 @@ using UnityEngine.Rendering.Universal;
 
 public class GiveDamage : MonoBehaviour
 {
-    [SerializeField] private float damagerate = 3f;
-    [SerializeField] internal int objectlife = 3;
+    [SerializeField] private int damagerate = 3;
+    [SerializeField] private int objectlife = 3;
     [SerializeField] private Light2D light2d;
     private bool isinrange = false;   
     private void Update()
     {
         DisableLight();
-    }       
+    }
+    public void TakeDamage()
+    {
+        objectlife--;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<PlayerControler>() != null)
@@ -31,11 +35,11 @@ public class GiveDamage : MonoBehaviour
         {
             isinrange = false;
         }
-    } 
+    }
     private void Givedamage()
     {
-        PlayerControler.instance.playerhealth -= (damagerate * Time.deltaTime);
-    } 
+        PlayerControler.instance.TakeDamage(damagerate);
+    }
     private void DisableLight()
     {
         if (objectlife <= 0)

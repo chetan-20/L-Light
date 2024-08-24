@@ -9,7 +9,7 @@ public class PlayerControler : MonoBehaviour
     private float slidingspeed;
     private bool isjumping=false;
     private bool issliding = false;
-    internal float playerhealth = 100f;   
+    private float playerhealth = 100f;   
     [SerializeField] private float movingspeed=2;    
     [SerializeField] private float jumpspeed = 1;
     [SerializeField] internal BoxCollider2D attackhitbox;
@@ -114,6 +114,10 @@ public class PlayerControler : MonoBehaviour
             GameService.Instance.SoundService.PlaySound(Sounds.LevelCompleteSound);
             GameService.Instance.UIService.InvokeGameWon();
         }
+    }
+    public void TakeDamage(int damagerate)
+    {
+        playerhealth-= (damagerate*Time.deltaTime);
     }
 
     private void LevelLost()

@@ -27,7 +27,7 @@ public class UIService : MonoBehaviour
     }
     private void SetButtons()
     {
-        playButton.onClick.AddListener(LoadNext);
+        playButton.onClick.AddListener(LoadNextLevel);
         muteButton.onClick.AddListener(GameService.Instance.SoundService.ToggleMute);
         quitButton.onClick.AddListener(QuitGame);
         menuButton1.onClick.AddListener(LoadMenu);
@@ -38,13 +38,14 @@ public class UIService : MonoBehaviour
     private void LoadMenu()
     {
         GameService.Instance.SoundService.PlayClickSound();
-        SceneManager.LoadScene(0);
+        menuObject.SetActive(true);        
+        Time.timeScale = 0f;
     }
-    private void LoadNext()
+    private void LoadNextLevel()
     {
         GameService.Instance.SoundService.PlayClickSound();
-        levelWonObject.SetActive(false);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        GameService.Instance.LevelService.SpawnLevel(GameService.Instance.LevelService.CurrentLevelNumber+1);
+        DisableUIPanels();
         Time.timeScale = 1.0f;
     }
     private void RestartLevel()
@@ -62,6 +63,12 @@ public class UIService : MonoBehaviour
     {        
         Time.timeScale = 0f;
         levelWonObject.SetActive(true);
+    }
+    private void DisableUIPanels()
+    {
+        menuObject.SetActive(false);
+        levellostObject.SetActive(false);
+        levelWonObject.SetActive(false);
     }
     private void OnDisable()
     {
