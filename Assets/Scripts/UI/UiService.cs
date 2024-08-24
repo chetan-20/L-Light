@@ -18,9 +18,11 @@ public class UIService : MonoBehaviour
     [SerializeField] private GameObject healthObject;   
     public Image greenHealthBar;
     public event Action OnGameWon;
+    public event Action OnGameLost;
     private void OnEnable()
     {
         OnGameWon += OnLevelWin;
+        OnGameLost += OnLevelLost;
     }
     private void Start()
     {
@@ -40,6 +42,7 @@ public class UIService : MonoBehaviour
     {
         GameService.Instance.SoundService.PlayClickSound();
         GameService.Instance.LevelService.ResetLevelNumber();
+        DisableUIPanels();
         menuObject.SetActive(true);               
     }
     private void LoadNextLevel()
@@ -53,6 +56,7 @@ public class UIService : MonoBehaviour
     {
         GameService.Instance.SoundService.PlayClickSound();
         DisableUIPanels();
+        greenHealthBar.fillAmount = 100f;
         healthObject.SetActive(true);
         GameService.Instance.LevelService.SpawnLevel(GameService.Instance.LevelService.CurrentLevelNumber);
     }
@@ -62,11 +66,16 @@ public class UIService : MonoBehaviour
         Application.Quit();
     }
     public void InvokeGameWon()=>OnGameWon?.Invoke();
+    public void InvokeGameLost()=>OnGameLost?.Invoke();
     private void OnLevelWin()
     {              
         levelWonObject.SetActive(true);
+        healthObject.SetActive(false);       
+    }
+    private void OnLevelLost()
+    {
+        levellostObject.SetActive(true);
         healthObject.SetActive(false);
-        greenHealthBar.fillAmount = 100f;
     }
     private void DisableUIPanels()
     {
@@ -78,5 +87,6 @@ public class UIService : MonoBehaviour
     private void OnDisable()
     {
         OnGameWon -= OnLevelWin;
+        OnGameLost -= OnLevelLost;
     }
 }

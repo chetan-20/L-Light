@@ -120,7 +120,8 @@ public class PlayerControler
     {
         if (playerModel.playerhealth <= 0)
         {
-            GameService.Instance.SoundService.PlaySound(Sounds.DeathSound);           
+            GameService.Instance.SoundService.PlaySound(Sounds.DeathSound);
+            GameService.Instance.UIService.InvokeGameLost();
         }
     }
 }

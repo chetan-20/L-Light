@@ -9,6 +9,7 @@ public class LevelService : MonoBehaviour
     private void Start()
     {
         GameService.Instance.UIService.OnGameWon += DestroyCurrentLevel;
+        GameService.Instance.UIService.OnGameLost += DestroyCurrentLevel;
     }
     public void SpawnLevel(int levelNumber)
     {
@@ -42,6 +43,7 @@ public class LevelService : MonoBehaviour
     private void OnDisable()
     {
         GameService.Instance.UIService.OnGameWon -= DestroyCurrentLevel;
+        GameService.Instance.UIService.OnGameLost -= DestroyCurrentLevel;
     }
     public void ResetLevelNumber() => currentLevelNumber = 0;
 }
