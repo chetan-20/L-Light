@@ -2683,6 +2683,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2473002879072871938}
   - component: {fileID: 2147505969845853421}
+  - component: {fileID: 4516431597814173970}
   m_Layer: 0
   m_Name: IglooFinish
   m_TagString: Untagged
@@ -2757,6 +2758,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.5914612, y: 1.4260609}
   m_EdgeRadius: 0
+--- !u!114 &4516431597814173970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5907441264953338475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52517430a821e064b96b37a7dd88afa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6832315031207664744
 GameObject:
   m_ObjectHideFlags: 0
@@ -3399,19 +3412,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4906011164985122433, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: m_LocalBounds.m_Center.x
-      value: 0.008849978
+      value: -0.0022999942
       objectReference: {fileID: 0}
     - target: {fileID: 4906011164985122433, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: m_LocalBounds.m_Center.y
-      value: 0.29320002
+      value: 0.2949
       objectReference: {fileID: 0}
     - target: {fileID: 4906011164985122433, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: m_LocalBounds.m_Extent.x
-      value: 0.94575
+      value: 0.9527
       objectReference: {fileID: 0}
     - target: {fileID: 4906011164985122433, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: m_LocalBounds.m_Extent.y
-      value: 0.7
+      value: 0.7045
       objectReference: {fileID: 0}
     - target: {fileID: 6775589720832356875, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: m_Name
@@ -3869,7 +3882,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2141241875147067589, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.46
+      value: 2.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 2141241875147067589, guid: d7818de9012ebb741acc170a6562d209, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.07
       objectReference: {fileID: 0}
     - target: {fileID: 2450625494295806281, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3913,19 +3930,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4906011164985122433, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: m_LocalBounds.m_Center.x
-      value: 0.0065000057
+      value: 0.0073499978
       objectReference: {fileID: 0}
     - target: {fileID: 4906011164985122433, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: m_LocalBounds.m_Center.y
-      value: 0.2909
+      value: 0.29165
       objectReference: {fileID: 0}
     - target: {fileID: 4906011164985122433, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: m_LocalBounds.m_Extent.x
-      value: 0.9546
+      value: 0.95995
       objectReference: {fileID: 0}
     - target: {fileID: 4906011164985122433, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: m_LocalBounds.m_Extent.y
-      value: 0.7
+      value: 0.70965
+      objectReference: {fileID: 0}
+    - target: {fileID: 5286641704307283015, guid: d7818de9012ebb741acc170a6562d209, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 5286641704307283015, guid: d7818de9012ebb741acc170a6562d209, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.48
       objectReference: {fileID: 0}
     - target: {fileID: 5924333268054873503, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: MovingSpeed
@@ -3937,7 +3962,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6809806553273117399, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.73
+      value: -3.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6809806553273117399, guid: d7818de9012ebb741acc170a6562d209, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.04
       objectReference: {fileID: 0}
     - target: {fileID: 7628007021027540801, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: damagerate
