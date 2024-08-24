@@ -8,15 +8,14 @@ public class UIService : MonoBehaviour
     [SerializeField] private Button playButton;
     [SerializeField] private Button quitButton;
     [SerializeField] private Button muteButton;
-    [SerializeField] private Button menuButton1;
-    //[SerializeField] private Button menuButton2(pause menu);
+    [SerializeField] private Button menuButton1;   
     [SerializeField] private Button restartButton1;
     [SerializeField] private Button restartButton2;
     [SerializeField] private Button nextButton;
     [SerializeField] private GameObject menuObject;
     [SerializeField] private GameObject levelWonObject;
     [SerializeField] private GameObject levellostObject;
-    [SerializeField] private GameObject healthObject;
+    [SerializeField] private GameObject healthObject;   
     public Image greenHealthBar;
     public event Action OnGameWon;
     private void OnEnable()
@@ -31,15 +30,16 @@ public class UIService : MonoBehaviour
     {
         playButton.onClick.AddListener(LoadNextLevel);
         muteButton.onClick.AddListener(GameService.Instance.SoundService.ToggleMute);
+        nextButton.onClick.AddListener(LoadNextLevel);
         quitButton.onClick.AddListener(QuitGame);
-        menuButton1.onClick.AddListener(LoadMenu);
-        //menuButton2.onClick.AddListener(LoadMenu);
+        menuButton1.onClick.AddListener(LoadMenu);      
         restartButton1.onClick.AddListener(RestartLevel);
         restartButton2.onClick.AddListener(RestartLevel);
     }
     private void LoadMenu()
     {
         GameService.Instance.SoundService.PlayClickSound();
+        GameService.Instance.LevelService.ResetLevelNumber();
         menuObject.SetActive(true);               
     }
     private void LoadNextLevel()
@@ -47,8 +47,7 @@ public class UIService : MonoBehaviour
         GameService.Instance.SoundService.PlayClickSound();
         GameService.Instance.LevelService.SpawnLevel(GameService.Instance.LevelService.CurrentLevelNumber+1);
         DisableUIPanels();
-        healthObject.SetActive(true);
-        Time.timeScale = 1.0f;
+        healthObject.SetActive(true);        
     }
     private void RestartLevel()
     {

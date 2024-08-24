@@ -43,4 +43,5 @@ public class LevelService : MonoBehaviour
     {
         GameService.Instance.UIService.OnGameWon -= DestroyCurrentLevel;
     }
+    public void ResetLevelNumber() => currentLevelNumber = 0;
 }
