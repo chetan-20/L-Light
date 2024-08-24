@@ -5,26 +5,26 @@ public class LevelService : MonoBehaviour
 {
     [SerializeField] private LevelSO[] levels;
     private int currentLevelNumber=0;
+    private LevelSO activeLevel;
     public int CurrentLevelNumber => currentLevelNumber;
    
     public void SpawnLevel(int levelNumber)
     {
-        LevelSO currentLevel = FindLevel(levelNumber);
-        if (currentLevel != null)
+        activeLevel = FindLevel(levelNumber);
+        if (activeLevel != null)
         {
-            Instantiate(currentLevel.LevelObject);
-            currentLevelNumber = currentLevel.Level;
+            Instantiate(activeLevel.LevelObject);
+            currentLevelNumber = activeLevel.Level;
         }
         else
         {
             Debug.Log("Level Not Found");
         }
     }
-    public LevelSO GetLevel()
+    public LevelSO GetLevel()//maybe make destroy level method here
     {
-        LevelSO currentlevel = FindLevel(currentLevelNumber);
-        if(currentlevel != null) { return currentlevel; }
-        return null;
+        if (activeLevel == null) return null;
+        return activeLevel;
     }
     private LevelSO FindLevel(int levelNumber)
     {

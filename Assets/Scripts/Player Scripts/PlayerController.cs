@@ -1,20 +1,10 @@
 using UnityEngine;
 
 public class PlayerControler : MonoBehaviour
-{
-    public static PlayerControler instance;
-    private Rigidbody2D rb;
-    private SpriteRenderer rbSprite;
-    private float defaultspeed;
-    private float slidingspeed;
-    private bool isjumping=false;
-    private bool issliding = false;
-    private float playerhealth = 100f;   
-    [SerializeField] private float movingspeed=2;    
-    [SerializeField] private float jumpspeed = 1;
-    [SerializeField] internal BoxCollider2D attackhitbox;
-    [SerializeField] private Animator animator;
-    [SerializeField] private BoxCollider2D WinTrigger;
+{  
+   
+    
+    
     private void Awake()
     {
         instance = this;
@@ -107,18 +97,13 @@ public class PlayerControler : MonoBehaviour
         animator.SetBool("IsSliding", false);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision == WinTrigger)
-        {
-            GameService.Instance.SoundService.PlaySound(Sounds.LevelCompleteSound);
-            GameService.Instance.UIService.InvokeGameWon();
-        }
-    }
+   
     public void TakeDamage(int damagerate)
     {
         playerhealth-= (damagerate*Time.deltaTime);
     }
+    public float GetPlayerHealth() => playerhealth;
+   
 
     private void LevelLost()
     {

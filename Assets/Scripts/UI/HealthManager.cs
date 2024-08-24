@@ -14,7 +14,7 @@ public class HealthManager : MonoBehaviour
     {
         if (healthbar.fillAmount >= 0)
         {
-            healthbar.fillAmount = PlayerControler.instance.playerhealth / 100f;
+            healthbar.fillAmount = PlayerControler.instance.GetPlayerHealth() / 100f;
         }
     }
 }

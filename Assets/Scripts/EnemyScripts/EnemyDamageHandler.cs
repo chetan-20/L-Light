@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class GiveDamage : MonoBehaviour
+public class EnemyDamageHandler : MonoBehaviour
 {
     [SerializeField] private int damagerate = 3;
     [SerializeField] private int objectlife = 3;
