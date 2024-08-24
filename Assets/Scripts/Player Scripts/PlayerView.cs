@@ -9,6 +9,7 @@ public class PlayerView : MonoBehaviour
     public SpriteRenderer rbSprite;
     public Image healthbar;
     public Vector3 SpawnPoint;
+    public Transform parentTransform;
     private PlayerControler playerControler;
     private void Awake()
     {
@@ -20,6 +21,7 @@ public class PlayerView : MonoBehaviour
         playerControler.Start();
         healthbar = GameService.Instance.UIService.greenHealthBar;
         SpawnPoint = transform.position;
+        parentTransform = transform.parent;
     }
     private void Update()
     {

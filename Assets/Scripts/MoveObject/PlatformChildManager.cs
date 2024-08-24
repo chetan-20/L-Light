@@ -13,9 +13,10 @@ public class PlatformChildManager : MonoBehaviour
     
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerView>() != null)
+        PlayerView pView = collision.gameObject.GetComponent<PlayerView>();
+        if (pView != null) 
         {
-            collision.transform.SetParent(null);            
+            collision.transform.SetParent(pView.parentTransform);            
         }
     }
 }

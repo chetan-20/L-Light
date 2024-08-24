@@ -4,36 +4,43 @@ public class LevelService : MonoBehaviour
 {
     [SerializeField] private LevelSO[] levels;
     private int currentLevelNumber=0;
-    private LevelSO activeLevel;
+    private GameObject activeLevel;
     public int CurrentLevelNumber => currentLevelNumber;
-   
+    private void Start()
+    {
+        GameService.Instance.UIService.OnGameWon += DestroyCurrentLevel;
+    }
     public void SpawnLevel(int levelNumber)
     {
-        activeLevel = FindLevel(levelNumber);
-        if (activeLevel != null)
+        GameObject levelPrefab = FindLevel(levelNumber);
+        if (levelPrefab != null)
         {
-            Instantiate(activeLevel.LevelObject);
-            currentLevelNumber = activeLevel.Level;
+            activeLevel = Instantiate(levelPrefab);           
         }
         else
         {
             Debug.Log("Level Not Found");
         }
     }
-    public LevelSO GetLevel()//maybe make destroy level method here
+    private void DestroyCurrentLevel()
     {
-        if (activeLevel == null) return null;
-        return activeLevel;
+      Destroy(activeLevel);
     }
-    private LevelSO FindLevel(int levelNumber)
+    private GameObject FindLevel(int levelNumber)
     {
         foreach (LevelSO data in levels)
         {
-            if (data.Level == levelNumber)
+            if (data.level == levelNumber)
             {
-                return data;
+                currentLevelNumber = data.level;
+                return data.levelObject; 
+                
             }
         }
         return null;
+    }
+    private void OnDisable()
+    {
+        GameService.Instance.UIService.OnGameWon -= DestroyCurrentLevel;
     }
 }
