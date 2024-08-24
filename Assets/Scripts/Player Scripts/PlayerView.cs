@@ -8,6 +8,7 @@ public class PlayerView : MonoBehaviour
     public Rigidbody2D rb;
     public SpriteRenderer rbSprite;
     public Image healthbar;
+    public Vector3 SpawnPoint;
     private PlayerControler playerControler;
     private void Awake()
     {
@@ -18,6 +19,7 @@ public class PlayerView : MonoBehaviour
         GameService.Instance.SetCurrentPlayerController(playerControler);
         playerControler.Start();
         healthbar = GameService.Instance.UIService.greenHealthBar;
+        SpawnPoint = transform.position;
     }
     private void Update()
     {
@@ -26,4 +28,7 @@ public class PlayerView : MonoBehaviour
             playerControler.Update();
         }
     }
+    public void TurnOffAttack()=>playerControler.TurnOffAttack();
+    public void TurnOffSlide()=>playerControler.TurnOffSlide();
+    public void TurnOffJump()=>playerControler.TurnOffJump();
 }

@@ -80,17 +80,17 @@ public class PlayerControler
             playerView.attackhitbox.transform.localPosition = new Vector2(playerView.rbSprite.flipX ? -2.5f : 0f, playerView.attackhitbox.transform.localPosition.y);           
         }
     }  
-    private void TurnOffAttack()
+    public void TurnOffAttack()
     {
         playerView.animator.SetBool("IsAttacking", false);
         playerView.attackhitbox.enabled = false;
     } 
-    private void TurnOffJump()
+    public void TurnOffJump()
     {
         playerView.animator.SetBool("IsJumping", false);
         playerModel.isjumping = false;
     } 
-    private void TurnOffSlide()
+    public void TurnOffSlide()
     {
         playerModel.issliding = false;
         playerModel.movingspeed = playerModel.defaultspeed;

@@ -5,6 +5,6 @@ public class PlayerModel
     public bool isjumping = false;
     public bool issliding = false;
     public float playerhealth = 100f;
-    public float movingspeed = 2;
-    public float jumpspeed = 1;
+    public float movingspeed = 3;
+    public float jumpspeed = 2;
 }

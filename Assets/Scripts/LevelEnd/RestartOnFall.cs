@@ -5,10 +5,11 @@ public class RestartOnFall : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerControler>() != null)
+        PlayerView pView = collision.gameObject.GetComponent<PlayerView>();
+        if(pView != null)      
         {
             GameService.Instance.SoundService.PlaySound(Sounds.DeathSound);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            pView.transform.position = pView.SpawnPoint;
         }
     }
 }
