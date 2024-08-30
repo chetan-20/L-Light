@@ -48,9 +48,9 @@ public class UIService : MonoBehaviour
     private void LoadNextLevel()
     {    
         GameService.Instance.SoundService.PlayClickSound();
-        GameService.Instance.LevelService.LoadNextLevel();
         DisableUIPanels();
-        healthObject.SetActive(true);        
+        healthObject.SetActive(true);      
+        GameService.Instance.LevelService.LoadNextLevel();          
     }
     private void RestartLevel()
     {

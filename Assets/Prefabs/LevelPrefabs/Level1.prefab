@@ -680,7 +680,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6082125667569050415}
-  - component: {fileID: 2499444003879800456}
+  - component: {fileID: 3059953585131437420}
   m_Layer: 0
   m_Name: Rectangle Collider (7)
   m_TagString: Untagged
@@ -703,8 +703,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5024738840676127846}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!68 &2499444003879800456
-EdgeCollider2D:
+--- !u!60 &3059953585131437420
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -736,37 +736,41 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   m_Points:
-  - {x: 0.15893596, y: 0.96015775}
-  - {x: -0.12374513, y: -0.39950484}
-  - {x: -0.26459312, y: -0.39634115}
-  - {x: -0.55030537, y: 0.9499581}
-  - {x: -0.68798304, y: 0.9477301}
-  - {x: -0.68570894, y: 0.67283505}
-  - {x: -0.6817772, y: 0.099452555}
-  - {x: -0.55415004, y: -0.042871118}
-  - {x: -0.4074101, y: -0.36676872}
-  - {x: -0.37768856, y: -0.78221023}
-  - {x: -0.29287925, y: -1.2557758}
-  - {x: -0.21023643, y: -1.4045544}
-  - {x: -0.13036361, y: -1.313447}
-  - {x: -0.037812535, y: -0.9482252}
-  - {x: 0.015106166, y: -0.5162904}
-  - {x: 0.023478338, y: -0.28941786}
-  - {x: 0.08019022, y: -0.31046337}
-  - {x: 0.1352551, y: -0.18737505}
-  - {x: 0.18320787, y: 0.08188081}
-  - {x: 0.18122356, y: -0.0049076714}
-  - {x: 0.2847562, y: -0.044326082}
-  - {x: 0.30243745, y: 0.405795}
-  - {x: 0.3043643, y: 0.9237487}
-  - {x: 0.15277818, y: 0.96858144}
-  - {x: 0.16023624, y: 0.98386633}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
+    m_Paths:
+    - - {x: 0.16381001, y: 0.9573999}
+      - {x: 0.07409977, y: 0.55819154}
+      - {x: -0.121936925, y: -0.36774063}
+      - {x: -0.26134872, y: -0.3557455}
+      - {x: -0.44986385, y: 0.5079928}
+      - {x: -0.55129796, y: 0.97520065}
+      - {x: -0.6890731, y: 0.9650874}
+      - {x: -0.67712516, y: 0.03609085}
+      - {x: -0.61473787, y: -0.076988816}
+      - {x: -0.55301577, y: 0.011191234}
+      - {x: -0.5190723, y: -0.22281031}
+      - {x: -0.40270454, y: -0.37968475}
+      - {x: -0.37767506, y: -0.81991774}
+      - {x: -0.3263107, y: -1.101757}
+      - {x: -0.21592689, y: -1.3918309}
+      - {x: -0.08670074, y: -1.2328248}
+      - {x: 0.013373341, y: -0.58326316}
+      - {x: 0.021869354, y: -0.34522003}
+      - {x: 0.11675722, y: -0.25750682}
+      - {x: 0.17614006, y: 0.019452453}
+      - {x: 0.24677368, y: 0.020688761}
+      - {x: 0.2823393, y: -0.086227536}
+      - {x: 0.3063599, y: 0.9428482}
+  m_UseDelaunayMesh: 0
 --- !u!1 &3732023619015400651
 GameObject:
   m_ObjectHideFlags: 0
@@ -2095,7 +2099,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1951158902383299419}
   m_Layer: 0
-  m_Name: LevelObject
+  m_Name: Level1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2728,19 +2732,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4906011164985122433, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: m_LocalBounds.m_Center.x
-      value: 0.006000012
+      value: 0.0065000057
       objectReference: {fileID: 0}
     - target: {fileID: 4906011164985122433, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: m_LocalBounds.m_Center.y
-      value: 0.2852
+      value: 0.2879
       objectReference: {fileID: 0}
     - target: {fileID: 4906011164985122433, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: m_LocalBounds.m_Extent.x
-      value: 0.95930004
+      value: 0.9574
       objectReference: {fileID: 0}
     - target: {fileID: 4906011164985122433, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: m_LocalBounds.m_Extent.y
-      value: 0.7018
+      value: 0.6989
       objectReference: {fileID: 0}
     - target: {fileID: 6775589720832356875, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: m_Name
@@ -3316,19 +3320,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4906011164985122433, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: m_LocalBounds.m_Center.x
-      value: 0.0081499815
+      value: 0.011849999
       objectReference: {fileID: 0}
     - target: {fileID: 4906011164985122433, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: m_LocalBounds.m_Center.y
-      value: 0.28675002
+      value: 0.28805
       objectReference: {fileID: 0}
     - target: {fileID: 4906011164985122433, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: m_LocalBounds.m_Extent.x
-      value: 0.95265
+      value: 0.94585
       objectReference: {fileID: 0}
     - target: {fileID: 4906011164985122433, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: m_LocalBounds.m_Extent.y
-      value: 0.70475
+      value: 0.71125
       objectReference: {fileID: 0}
     - target: {fileID: 5286641704307283015, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: m_LocalPosition.x
