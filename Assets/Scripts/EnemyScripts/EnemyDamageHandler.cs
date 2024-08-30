@@ -13,8 +13,7 @@ public class EnemyDamageHandler : MonoBehaviour
     }
     public void TakeDamage()
     {
-        objectlife--;
-        Debug.Log("Taking Damage enemy");
+        objectlife--;       
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

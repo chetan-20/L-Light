@@ -38,7 +38,7 @@ public class UIService : MonoBehaviour
         restartButton1.onClick.AddListener(RestartLevel);
         restartButton2.onClick.AddListener(RestartLevel);
     }
-    private void LoadMenu()
+    public void LoadMenu()
     {
         GameService.Instance.SoundService.PlayClickSound();
         GameService.Instance.LevelService.ResetLevelNumber();
@@ -46,9 +46,9 @@ public class UIService : MonoBehaviour
         menuObject.SetActive(true);               
     }
     private void LoadNextLevel()
-    {
+    {    
         GameService.Instance.SoundService.PlayClickSound();
-        GameService.Instance.LevelService.SpawnLevel(GameService.Instance.LevelService.CurrentLevelNumber+1);
+        GameService.Instance.LevelService.LoadNextLevel();
         DisableUIPanels();
         healthObject.SetActive(true);        
     }

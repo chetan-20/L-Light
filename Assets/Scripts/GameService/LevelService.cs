@@ -3,6 +3,7 @@ using UnityEngine;
 public class LevelService : MonoBehaviour
 {
     [SerializeField] private LevelSO[] levels;
+    private int numberOfLevels;
     private int currentLevelNumber=0;
     private GameObject activeLevel;
     public int CurrentLevelNumber => currentLevelNumber;
@@ -10,6 +11,7 @@ public class LevelService : MonoBehaviour
     {
         GameService.Instance.UIService.OnGameWon += DestroyCurrentLevel;
         GameService.Instance.UIService.OnGameLost += DestroyCurrentLevel;
+        numberOfLevels = levels.Length;
     }
     public void SpawnLevel(int levelNumber)
     {
@@ -44,6 +46,17 @@ public class LevelService : MonoBehaviour
     {
         GameService.Instance.UIService.OnGameWon -= DestroyCurrentLevel;
         GameService.Instance.UIService.OnGameLost -= DestroyCurrentLevel;
+    }
+    public void LoadNextLevel()
+    {
+        if ( CurrentLevelNumber + 1 <= numberOfLevels)
+        {
+            SpawnLevel(CurrentLevelNumber + 1);
+        }
+        else
+        {
+            GameService.Instance.UIService.LoadMenu();
+        }
     }
     public void ResetLevelNumber() => currentLevelNumber = 0;
 }
