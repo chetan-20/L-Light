@@ -2667,7 +2667,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1047684711257826982, guid: 3a6f4b3cbe0240442bcdd5ab74933a20, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2727,19 +2728,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4906011164985122433, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: m_LocalBounds.m_Center.x
-      value: 0.0015999973
+      value: 0.006000012
       objectReference: {fileID: 0}
     - target: {fileID: 4906011164985122433, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: m_LocalBounds.m_Center.y
-      value: 0.29065
+      value: 0.2852
       objectReference: {fileID: 0}
     - target: {fileID: 4906011164985122433, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: m_LocalBounds.m_Extent.x
-      value: 0.95650005
+      value: 0.95930004
       objectReference: {fileID: 0}
     - target: {fileID: 4906011164985122433, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: m_LocalBounds.m_Extent.y
-      value: 0.69605
+      value: 0.7018
       objectReference: {fileID: 0}
     - target: {fileID: 6775589720832356875, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: m_Name
@@ -3315,19 +3316,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4906011164985122433, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: m_LocalBounds.m_Center.x
-      value: 0.0029999912
+      value: 0.0081499815
       objectReference: {fileID: 0}
     - target: {fileID: 4906011164985122433, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: m_LocalBounds.m_Center.y
-      value: 0.2938
+      value: 0.28675002
       objectReference: {fileID: 0}
     - target: {fileID: 4906011164985122433, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: m_LocalBounds.m_Extent.x
-      value: 0.95430005
+      value: 0.95265
       objectReference: {fileID: 0}
     - target: {fileID: 4906011164985122433, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: m_LocalBounds.m_Extent.y
-      value: 0.7055
+      value: 0.70475
       objectReference: {fileID: 0}
     - target: {fileID: 5286641704307283015, guid: d7818de9012ebb741acc170a6562d209, type: 3}
       propertyPath: m_LocalPosition.x

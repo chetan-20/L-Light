@@ -7,10 +7,11 @@ public class PlayerView : MonoBehaviour
     public Animator animator;   
     public Rigidbody2D rb;
     public SpriteRenderer rbSprite;
-    public Image healthbar;
-    public Vector3 SpawnPoint;
-    public Transform parentTransform;
     private PlayerControler playerControler;
+    [HideInInspector]public Image healthbar;
+    [HideInInspector]public Vector3 SpawnPoint;
+    [HideInInspector]public Transform parentTransform;
+    
     private void Awake()
     {
         playerControler = new PlayerControler(this);
@@ -33,4 +34,7 @@ public class PlayerView : MonoBehaviour
     public void TurnOffAttack()=>playerControler.TurnOffAttack();
     public void TurnOffSlide()=>playerControler.TurnOffSlide();
     public void TurnOffJump()=>playerControler.TurnOffJump();
+    private void OnTriggerEnter2D(Collider2D collision)=>playerControler?.OnTriggerEnter2D(collision);
+
 }
+

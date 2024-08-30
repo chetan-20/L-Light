@@ -329,6 +329,8 @@ MonoBehaviour:
   rb: {fileID: 622255596587055263}
   rbSprite: {fileID: 6253298707517250724}
   healthbar: {fileID: 0}
+  SpawnPoint: {x: 0, y: 0, z: 0}
+  parentTransform: {fileID: 0}
 --- !u!1 &6264807408532956283
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,7 +341,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8756943428869793484}
   - component: {fileID: 5638262045614788985}
-  - component: {fileID: 1047684711257826982}
   m_Layer: 0
   m_Name: AttackHitBox
   m_TagString: Attack
@@ -407,18 +408,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1047684711257826982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6264807408532956283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8b492abd94536641b74454e9bb2b245, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8359336254311374299
 GameObject:
   m_ObjectHideFlags: 0

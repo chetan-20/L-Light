@@ -107,12 +107,15 @@ public class PlayerControler
             playerView.healthbar.fillAmount = playerModel.playerhealth / 100f;
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.gameObject.TryGetComponent(out EnemyDamageHandler enemy);
-        if (enemy != null)
+        if (playerView.attackhitbox.enabled)
         {
-            enemy.TakeDamage();
+            collision.gameObject.TryGetComponent(out EnemyDamageHandler enemy);
+            if (enemy != null)
+            {
+                enemy.TakeDamage();
+            }
         }
     }
 
